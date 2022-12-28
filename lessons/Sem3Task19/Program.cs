@@ -5,8 +5,6 @@ bool result = PalindromeTest(number);
 PrintData(result);
 
 
-
-
 // Метод читает данные от пользователя
 int ReadData(string msg)
 {
