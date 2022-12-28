@@ -1,39 +1,40 @@
-﻿// Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран
-
-int ReadData(string msg)
+﻿int ReadData(string msg)
 {
     Console.WriteLine(msg);
     return int.Parse(Console.ReadLine() ?? "0");
 }
 
-// Метод генерирует массив
-int[] GenArray(int arrayLength, int minNum, int maxNum)
+void PrintData(string res, int[] arr)
+{
+    Console.WriteLine(res);
+    PrintArr(arr);
+}
+
+int[] GenArr(int num)
 {
     Random rnd = new Random();
-    int[] array = new int[arrayLength];
-    for (int i = 0; i<arrayLength; i++)
+    int[] arr = new int[num];
+    for (int i = 0; i<arr.Length; i++)
     {
-        array[i] = rnd.Next(minNum, maxNum);
+        arr[i] = rnd.Next(0, 2);
     }
-    return array;
+    return arr;
 }
 
-// Метод печатает сгенерированный массив
-void PrintArray(int[] array)
+void PrintArr(int[] arr)
 {
     Console.Write("[");
-    for(int i=0; i<array.Length-1; i++)
+    for(int i=0; i<arr.Length-1; i++)
     {
-        Console.Write(array[i]+", ");
+        Console.Write(arr[i]+", ");
     }
-    Console.WriteLine(array[array.Length-1]+"]");
+    Console.WriteLine(arr[arr.Length-1]+"]");
 }
 
-int arrayLength = ReadData("Введите длину массива:");
-int min = ReadData("Введите нижнюю границу массива: ");
-int max = ReadData("Введите верхнюю границу массива: ");
+int arrLen = ReadData("Введите длину массива:");
 
-int[] array = GenArray(arrayLength, min, max);
+int[] arr = GenArr(arrLen);
 
-PrintArray(array);
+PrintData("Сгенерированный массив: ", arr);
+
 
